@@ -15,7 +15,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 public class App {
 	
 	// Page Constants section
-    // The login.html page is local on my web drive
+    // The login.html page is local on my web drive 
 	private static final String LOGIN_URL = "login.html";
 	private static final String USER = "testUser";
 	private static final String PASS = "Test1234";	
