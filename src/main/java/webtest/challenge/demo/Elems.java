@@ -1,4 +1,4 @@
-package webtest.challenge.employee;
+package webtest.challenge.demo;
 
 //Project Web Elements
 public enum Elems {
@@ -10,10 +10,10 @@ public enum Elems {
 	ADD_EMPLOYEE_LAST("//*[@id=\"employees-form\"]/div[2]/div/input"),
 	ADD_EMPLOYEE_DEPENDENTS("//*[@id=\"employees-form\"]/div[3]/div/input"),
 	SUBMIT_BTN("//*[@id=\"employees-form\"]/div[4]/div/button[1]"),
-	FIRST_NAME("//*[@id=\"employee-table\"]/tbody/tr[2]/td[2]"),
-	LAST_NAME("//*[@id=\"employee-table\"]/tbody/tr[2]/td[3]"),
-	BENEFIT_COST("//*[@id=\"employee-table\"]/tbody/tr[2]/td[7]"),
-	NET_PAY("//*[@id=\"employee-table\"]/tbody/tr[2]/td[8]");
+	FIRST_NAME("//*[@id=\"demo-table\"]/tbody/tr[2]/td[2]"),
+	LAST_NAME("//*[@id=\"demo-table\"]/tbody/tr[2]/td[3]"),
+	BENEFIT_COST("//*[@id=\"demo-table\"]/tbody/tr[2]/td[7]"),
+	NET_PAY("//*[@id=\"demo-table\"]/tbody/tr[2]/td[8]");
 
 	private final String elem;
 

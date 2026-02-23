@@ -4,7 +4,7 @@ import org.testng.Reporter;
 import org.testng.annotations.Test;
 
 
-import webtest.challenge.employee.App;
+import webtest.challenge.demo.App;
 
 public class AppTest {
 	
@@ -21,9 +21,9 @@ public class AppTest {
      //sets system property to find chromedriver.exe
      System.setProperty(EXE, PATH);
 	  
-	  //Step 1. Login to employee Benefits Dashboard page
+	  //Step 1. Login to demo Benefits Dashboard page
 	  //User can login to Benefits Dashboard page	  
-	  System.out.println("Step 1. Login to employee Benefits Dashboard page");
+	  System.out.println("Step 1. Login to demo Benefits Dashboard page");
 	  appTest.login();
 	  Reporter.log("Step 1. User can login to Benefits Dashboard page");
 	  
@@ -33,12 +33,12 @@ public class AppTest {
 	  appTest.launchAddEmployee();
 	  Reporter.log("Step 2. Add Employee & His dependents UI appears");
 	  
-	  //Step 3. User Adds employee details in the fields - First Name, Last name, and 1 Dependents 	
-	  //Users able to enter employee details - First Name, Last name, and 1 Dependents 
+	  //Step 3. User Adds demo details in the fields - First Name, Last name, and 1 Dependents
+	  //Users able to enter demo details - First Name, Last name, and 1 Dependents
 	  // First Name does NOT begin with “A” or “a” Enter 1 Dependents"
 	  System.out.println("Step 3. First Name does NOT begin with 'A' or 'a' Enter 2 Dependents");
 	  appTest.addEmployee();
-	  Reporter.log("Step 3. Users able to enter employee details - First Name, Last name, and 2 Dependents");
+	  Reporter.log("Step 3. Users able to enter demo details - First Name, Last name, and 2 Dependents");
 	  
 	  //Step 4. Employee should save by clicking the submit button	
 	  //Employee can click the submit button
@@ -46,11 +46,11 @@ public class AppTest {
 	  appTest.clickSubmitBtn();
 	  Reporter.log("Step 4. Employee can click the submit button");
 	  
-	  //Step 5. After submitting Employee, the user should see the employee in the table	
-	  //The user can see the employee in the table
-	  System.out.println("Step 5. After submitting Employee, the user should see the employee in the table");
+	  //Step 5. After submitting Employee, the user should see the demo in the table
+	  //The user can see the demo in the table
+	  System.out.println("Step 5. After submitting Employee, the user should see the demo in the table");
 	  appTest.seeEmployeeInTable();
-	  Reporter.log("Step 5. The user can see the employee in the table");
+	  Reporter.log("Step 5. The user can see the demo in the table");
 	  
 	  //Step 6. Benefit cost calculations are correct
 	  //Benefit cost calculations are correct (Benefits for this user are  $1500/year)
