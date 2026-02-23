@@ -2,6 +2,7 @@ package webtest.challenge.demo;
 
 import static org.testng.Assert.fail;
 
+import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -18,7 +19,7 @@ public class App {
 	// Page Constants section
     // The login.html page is local on my web drive 
 	//private static final String LOGIN_URL = "login.html";
-	private static final String LOGIN_URL = "login.html";
+	private static final String URL = "https://www.google.com";
 	private static final String USER = "testUser";
 	private static final String PASS = "Test1234";	
 	private static final String FIRST = "Leo";
@@ -44,7 +45,7 @@ public class App {
 
 		ChromeOptions NewChromeOptions = new ChromeOptions();
 
-		//WebDriverManager.chromedriver().setup();
+		WebDriverManager.chromedriver().setup();
         driverObj= new ChromeDriver();
 		
 		WebDriverWait wait;
@@ -56,7 +57,7 @@ public class App {
 						System.out.println("Driver is null");
 						return;
 					}
-					driverObj.navigate().to("https://www.google.com");
+					driverObj.navigate().to(URL);
 					Thread.sleep(50);
 					driverObj.manage().window().maximize();
 					
