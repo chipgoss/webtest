@@ -21,6 +21,7 @@ public class App {
 	
 	// Page Constants section
     // The login.html page is local on my web drive 
+	//private static final String LOGIN_URL = "login.html";
 	private static final String LOGIN_URL = "login.html";
 	private static final String USER = "testUser";
 	private static final String PASS = "Test1234";	
@@ -30,7 +31,7 @@ public class App {
 	private static final String BENEFIT_COST = "76.92";	
 	private static final String NET_PAY = "1923.08";
 
-	
+
 	WebDriver driverObj;
 	WebElement element;
 
@@ -55,7 +56,12 @@ public class App {
 
         //tries to execute commands to open chrome > navigate to login
 				try {
-					driverObj.navigate().to(LOGIN_URL);
+					if (driverObj == null) {
+						System.out.println("Driver is null");
+						return;
+					}
+					driverObj.navigate().to("https://www.google.com");
+					Thread.sleep(50);
 					driverObj.manage().window().maximize();
 					
 					//explicit wait - to wait for the button to be click-able
