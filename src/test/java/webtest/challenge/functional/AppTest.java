@@ -13,7 +13,7 @@ public class AppTest {
 
 	
 	// Declares page class object
-	private App appTest = new App();
+	private final App appTest = new App();
 
     @Test
   	public void tc01_addEmployeeNoDiscount() {

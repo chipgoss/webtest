@@ -29,7 +29,7 @@ public class App {
 	private static final String NET_PAY = "1923.08";
 
 
-	WebDriver driverObj;
+	public WebDriver driver;
 	WebElement element;
 
 	/**
@@ -46,36 +46,36 @@ public class App {
 		ChromeOptions NewChromeOptions = new ChromeOptions();
 
 		WebDriverManager.chromedriver().setup();
-        driverObj= new ChromeDriver();
+        driver = new ChromeDriver();
 		
 		WebDriverWait wait;
-        wait = new WebDriverWait(driverObj, Duration.ofSeconds(20));
+        wait = new WebDriverWait(driver, Duration.ofSeconds(20));
 
         //tries to execute commands to open chrome > navigate to login
 				try {
-					if (driverObj == null) {
+					if (driver == null) {
 						System.out.println("Driver is null");
 						return;
 					}
-					driverObj.navigate().to(URL);
+					driver.navigate().to(URL);
 					Thread.sleep(50);
-					driverObj.manage().window().maximize();
+					driver.manage().window().maximize();
 					
 					//explicit wait - to wait for the button to be click-able
 					wait.until(ExpectedConditions.elementToBeClickable(By.id(Elems.LOGIN_BUTTON.getElem())));
 					
 					//Enter USername
-					driverObj.findElement(By.name(Elems.LOGIN_USERNAME.getElem())).sendKeys(USER);
+					driver.findElement(By.name(Elems.LOGIN_USERNAME.getElem())).sendKeys(USER);
 					Thread.sleep(2000);
 					//Enter Password
-					driverObj.findElement(By.name(Elems.LOGIN_PASSWORD.getElem())).sendKeys(PASS);
+					driver.findElement(By.name(Elems.LOGIN_PASSWORD.getElem())).sendKeys(PASS);
 					Thread.sleep(2000);
 					//Click Login
-					driverObj.findElement(By.id(Elems.LOGIN_BUTTON.getElem())).click();
+					driver.findElement(By.id(Elems.LOGIN_BUTTON.getElem())).click();
 					Thread.sleep(5000);
 					
 					//Set element object to Add Employee element
-					element = driverObj.findElement(By.id(Elems.ADD_EMPLOYEE_BTN.getElem()));
+					element = driver.findElement(By.id(Elems.ADD_EMPLOYEE_BTN.getElem()));
 					
 					//Checks to see if the Add Employee button is displayed to show dashbaord logged in
 					if (element.isDisplayed()){
@@ -99,11 +99,11 @@ public class App {
 	public void launchAddEmployee() {
 		try {
 			
-			driverObj.findElement(By.id(Elems.ADD_EMPLOYEE_BTN.getElem())).click();
+			driver.findElement(By.id(Elems.ADD_EMPLOYEE_BTN.getElem())).click();
 			Thread.sleep(5000);			
 		
 			//Set element object to Submit btn element
-			element = driverObj.findElement(By.xpath(Elems.SUBMIT_BTN.getElem()));
+			element = driver.findElement(By.xpath(Elems.SUBMIT_BTN.getElem()));
 			
 			//Checks to see if the button is displayed 
 			if (element.isDisplayed()){
@@ -126,20 +126,20 @@ public class App {
 	 */
 	public void addEmployee() {
 		
-	    WebDriverWait wait = new WebDriverWait(driverObj, Duration.ofSeconds(20));
+	    WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(20));
 	    
 		try {
 			//explicit wait - to wait for the submit button to be click-able
 			wait.until(ExpectedConditions.elementToBeClickable(By.xpath(Elems.SUBMIT_BTN.getElem())));
 			
 			//First Name
-			driverObj.findElement(By.xpath(Elems.ADD_EMPLOYEE_FIRST.getElem())).sendKeys(FIRST);
+			driver.findElement(By.xpath(Elems.ADD_EMPLOYEE_FIRST.getElem())).sendKeys(FIRST);
 			Thread.sleep(2000);
 			//Last Name
-			driverObj.findElement(By.xpath(Elems.ADD_EMPLOYEE_LAST.getElem())).sendKeys(LAST);
+			driver.findElement(By.xpath(Elems.ADD_EMPLOYEE_LAST.getElem())).sendKeys(LAST);
 			Thread.sleep(2000);
 			//Dependents
-			driverObj.findElement(By.xpath(Elems.ADD_EMPLOYEE_DEPENDENTS.getElem())).sendKeys(DEPENDENTS);
+			driver.findElement(By.xpath(Elems.ADD_EMPLOYEE_DEPENDENTS.getElem())).sendKeys(DEPENDENTS);
 			Thread.sleep(2000);
 				
 			System.out.println("Expected Result Returned: Users able to enter demo details - First Name, Last name, and 2 Dependents");
@@ -160,7 +160,7 @@ public class App {
 	 */
 	public void clickSubmitBtn() {
 		try {			
-			driverObj.findElement(By.xpath(Elems.SUBMIT_BTN.getElem())).click();
+			driver.findElement(By.xpath(Elems.SUBMIT_BTN.getElem())).click();
 			Thread.sleep(5000);
 
 	   } catch (InterruptedException e) {
@@ -181,8 +181,8 @@ public class App {
 		//I used static xpath for the names in the table for the test
 		try {			
 			Thread.sleep(3000);	
-			String firstResult = driverObj.findElement(By.xpath(Elems.FIRST_NAME.getElem())).getText();
-			String lastResult = driverObj.findElement(By.xpath(Elems.LAST_NAME.getElem())).getText();
+			String firstResult = driver.findElement(By.xpath(Elems.FIRST_NAME.getElem())).getText();
+			String lastResult = driver.findElement(By.xpath(Elems.LAST_NAME.getElem())).getText();
 
 			//Checks to see if the button is displayed 
 			if (firstResult.equals(FIRST) && lastResult.equals(LAST)){
@@ -214,8 +214,8 @@ public class App {
 		try {
 			
 			Thread.sleep(3000);				
-			String benResult = driverObj.findElement(By.xpath(Elems.BENEFIT_COST.getElem())).getText();
-			String netResult = driverObj.findElement(By.xpath(Elems.NET_PAY.getElem())).getText();
+			String benResult = driver.findElement(By.xpath(Elems.BENEFIT_COST.getElem())).getText();
+			String netResult = driver.findElement(By.xpath(Elems.NET_PAY.getElem())).getText();
 			
 			//Checks to see if the button is displayed 
 			if (benResult.equals(BENEFIT_COST) && netResult.equals(NET_PAY)){
@@ -234,7 +234,12 @@ public class App {
 		} 
 		
 		//Closes Browser
-		driverObj.close();		
-	}	
-	
+		driver.close();
+	}
+
+	public void tearDown(){
+		if (driver != null){
+			driver.quit();
+		}
+	}
 }
