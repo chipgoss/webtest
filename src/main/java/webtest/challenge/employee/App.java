@@ -1,15 +1,20 @@
 package webtest.challenge.employee;
 
+import static org.openqa.selenium.remote.DesiredCapabilities.*;
 import static org.testng.Assert.fail;
 
+import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.remote.CapabilityType;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+
+import java.time.Duration;
 
 //this class method runs the tests
 public class App {
@@ -37,14 +42,18 @@ public class App {
     public void login(){
     	
 		//creates clean session-clean cache etc
-		DesiredCapabilities capabilities = DesiredCapabilities.chrome();
-		capabilities.setCapability(CapabilityType.ForSeleniumServer.ENSURING_CLEAN_SESSION, true);
+		//DesiredCapabilities capabilities = DesiredCapabilities.chrome();
+		//capabilities.setCapability(CapabilityType.ForSeleniumServer.ENSURING_CLEAN_SESSION, true);
+
+		ChromeOptions NewChromeOptions = new ChromeOptions();
+
+		//WebDriverManager.chromedriver().setup();
+        driverObj= new ChromeDriver();
 		
-		driverObj= new ChromeDriver();
-		
-		WebDriverWait wait = new WebDriverWait(driverObj,20);
-					
-				//tries to execute commands to open chrome > navigate to login
+		WebDriverWait wait;
+        wait = new WebDriverWait(driverObj, Duration.ofSeconds(20));
+
+        //tries to execute commands to open chrome > navigate to login
 				try {
 					driverObj.navigate().to(LOGIN_URL);
 					driverObj.manage().window().maximize();
@@ -114,7 +123,7 @@ public class App {
 	 */
 	public void addEmployee() {
 		
-	    WebDriverWait wait = new WebDriverWait(driverObj,20);
+	    WebDriverWait wait = new WebDriverWait(driverObj, Duration.ofSeconds(20));
 	    
 		try {
 			//explicit wait - to wait for the submit button to be click-able

@@ -3,12 +3,13 @@ package webtest.challenge.functional;
 import org.testng.Reporter;
 import org.testng.annotations.Test;
 
+
 import webtest.challenge.employee.App;
 
 public class AppTest {
 	
 	private static final String EXE = "webdriver.chrome.driver";
-	private static final String PATH = "C:\\Users\\cgoss\\Documents\\Java-Selenium\\drivers\\chromedriver.exe";	
+	private static final String PATH = "C:\\Users\\cagoss\\Documents\\Automation\\ChromeDriver\\chromedriver-win64\\chromedriver-win64\\chromedriver.exe";
 
 	
 	// Declares page class object
@@ -18,7 +19,7 @@ public class AppTest {
   	public void tc01_addEmployeeNoDiscount() {
     	
      //sets system property to find chromedriver.exe
-     System.setProperty(EXE, PATH);	
+     System.setProperty(EXE, PATH);
 	  
 	  //Step 1. Login to employee Benefits Dashboard page
 	  //User can login to Benefits Dashboard page	  
