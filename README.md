@@ -15,11 +15,11 @@ A clean, minimal Selenium test that launches Chrome, navigates to Google, perfor
 ### How to run
 1. Clone: `git clone https://github.com/yourusername/webtest.git`
 2. Build: `mvn clean install`
-3. Run: `mvn test` (or right-click AppTest.java → Run)
+3. Run: `mvn test` (or right-click \webtest\resources\TestNGXmls\DuckDuckGo.xml → Run)
 
 ### What it does
 - Opens Chrome
-- Goes to `https://www.google.com`
+- Goes to `https://duckduckgo.com/`
 - Searches "selenium test"
 - Checks title contains "selenium test"
 
