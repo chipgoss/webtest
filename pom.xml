@@ -1,5 +1,7 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
 
   <groupId>com.goss.maven</groupId>
@@ -12,23 +14,34 @@
 
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    <!-- If you prefer properties style instead of plugin <release>, you can add:
+         <maven.compiler.release>17</maven.compiler.release>
+         and remove the <release> block below. Keeping the plugin explicit is clearer. -->
   </properties>
 
   <dependencies>
+
+    <!-- Selenium 4 -->
     <dependency>
-      <groupId>junit</groupId>
-      <artifactId>junit</artifactId>
-      <version>3.8.1</version>
+      <groupId>org.seleniumhq.selenium</groupId>
+      <artifactId>selenium-java</artifactId>
+      <version>4.41.0</version>
+    </dependency>
+
+    <!-- TestNG (you’re using this; JUnit 3 removed) -->
+    <dependency>
+      <groupId>org.testng</groupId>
+      <artifactId>testng</artifactId>
+      <version>7.12.0</version>
       <scope>test</scope>
     </dependency>
 
-
+    <!-- WebDriverManager -->
     <dependency>
-	<groupId>org.seleniumhq.selenium</groupId>
-	<artifactId>selenium-java</artifactId>
-	<version>4.41.0</version>
-	</dependency>
-
+      <groupId>io.github.bonigarcia</groupId>
+      <artifactId>webdrivermanager</artifactId>
+      <version>6.3.3</version>
+    </dependency>
     <dependency>
       <groupId>org.testng</groupId>
       <artifactId>testng</artifactId>
@@ -36,16 +49,38 @@
       <scope>compile</scope>
     </dependency>
 
-
-    <!-- Source: https://mvnrepository.com/artifact/io.github.bonigarcia/webdrivermanager -->
-    <dependency>
-      <groupId>io.github.bonigarcia</groupId>
-      <artifactId>webdrivermanager</artifactId>
-      <version>6.3.3</version>
-      <scope>compile</scope>
-    </dependency>
-
   </dependencies>
-  
-  
+
+  <build>
+    <plugins>
+
+      <!-- Compile with Java 17 (change to 21 if you want) -->
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-compiler-plugin</artifactId>
+        <version>3.11.0</version>
+        <configuration>
+          <release>17</release>
+        </configuration>
+      </plugin>
+
+      <!-- Run tests (auto-detects TestNG because dependency is present) -->
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-surefire-plugin</artifactId>
+        <version>3.2.5</version>
+        <!-- Optional: explicitly set includes if your tests use nonstandard names
+        <configuration>
+          <includes>
+            <include>**/*Test.java</include>
+            <include>**/*Tests.java</include>
+            <include>**/*IT.java</include>
+          </includes>
+        </configuration>
+        -->
+      </plugin>
+
+    </plugins>
+  </build>
+
 </project>

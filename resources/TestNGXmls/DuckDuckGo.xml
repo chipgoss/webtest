@@ -3,7 +3,8 @@
 <suite name="Suite" parallel="false">
   <test name="Test">
     <classes>
-      <class name="paylocity.challenge.functional.AppTest"/>
+      <class name="webtest.challenge.functional.DuckDuckGoSearchTest"/>
     </classes>
-  </test> 
-</suite> 
+  </test>
+</suite>
+
