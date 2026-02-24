@@ -1,1 +1,18 @@
-/target/
+
+# IntelliJ / Eclipse
+.idea/
+.settings/
+*.iml
+.classpath
+.project
+
+# TestNG output
+test-output/
+
+# Maven
+target/
+!.mvn/wrapper/maven-wrapper.jar
+
+# Java
+*.log
+*.class
