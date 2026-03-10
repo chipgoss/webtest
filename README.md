@@ -29,6 +29,23 @@ A clean, minimal Selenium test that launches Chrome, navigates to Google, perfor
 - JUnit 5
 - ChromeDriver (auto)
 
+## Jenkins CI/CD Setup
+This project is configured to run on a Windows Jenkins node.
+
+### Global Tool Configuration
+Ensure these exact **Names** are used in *Manage Jenkins > Tools*:
+- **JDK:** `JDK` (Path: `C:\Program Files\Zulu\zulu-25\`)
+- **Maven:** `Maven 3.x` (Install automatically from Apache)
+
+### Jenkins Pipeline Details
+- **Credentials ID:** `d12ea42e-e0b5-4e25-bac7-1035b04f53e2` (GitHub PAT)
+- **Branch:** `master`
+- **Shell Type:** Always use `bat` commands for Windows.
+
+### Maven Notes
+- **Compiler Release:** Set to `25` in `pom.xml` to match OpenJDK 25.
+- **TestNG Scope:** Set to `compile` so Page Objects in `src/main` can use assertions.
+
 No fluff. Just working code.
 
 Feel free to fork, tweak, or steal for your own demo.
