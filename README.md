@@ -41,6 +41,8 @@ Ensure these exact **Names** are used in *Manage Jenkins > Tools*:
 - **Credentials ID:** `d12ea42e-e0b5-4e25-bac7-1035b04f53e2` (GitHub PAT)
 - **Branch:** `master`
 - **Shell Type:** Always use `bat` commands for Windows.
+- <img width="1869" height="898" alt="image" src="https://github.com/user-attachments/assets/4c4b6abb-aff7-4262-a255-1009419f7c27" />
+
 
 ### Maven Notes
 - **Compiler Release:** Set to `25` in `pom.xml` to match OpenJDK 25.
