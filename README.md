@@ -1,4 +1,4 @@
-# Selenium Demo: Chrome Browser Automation
+# Java - Selenium Demo: Chrome Browser Automation
 
 A clean, minimal Selenium test that launches Chrome, navigates to Google, performs a search, and verifies the title.
 
