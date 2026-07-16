@@ -4,6 +4,7 @@
   <test name="Test">
     <classes>
       <class name="webtest.challenge.functional.DuckDuckGoSearchTest"/>
+      <class name="webtest.challenge.functional.DuckDuckGoGrokTest"/>
     </classes>
   </test>
 </suite>
