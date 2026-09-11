@@ -2,7 +2,7 @@ package webtest.challenge.demo;
 
 //Project Web Elements
 public enum Elems {
-	TEXT_AREA("searchbox_input"),
+	TEXT_AREA("q"),
 	SEARCH_BTN("//button[@type='submit']");
 
 

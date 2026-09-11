@@ -2,6 +2,7 @@ package webtest.challenge.demo;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -56,7 +57,7 @@ public class DuckDuckGoPage {
 
 
 					//explicit wait - to wait for the button to be click-able
-					wait.until(ExpectedConditions.elementToBeClickable(By.id(Elems.TEXT_AREA.getElem())));
+					wait.until(ExpectedConditions.elementToBeClickable(By.name(Elems.TEXT_AREA.getElem())));
 
 					//Enter Search Text
 					/**driver.findElement(By.name(Elems.LOGIN_USERNAME.getElem())).sendKeys(USER);
@@ -76,7 +77,7 @@ public class DuckDuckGoPage {
 		try {
 
 			//Enter Text
-			driver.findElement(By.id(Elems.TEXT_AREA.getElem())).sendKeys(TEXT);
+			driver.findElement(By.name(Elems.TEXT_AREA.getElem())).sendKeys(TEXT);
 			Thread.sleep(2000);
 
 			//if exception executing above code, outputs issues
@@ -88,9 +89,8 @@ public class DuckDuckGoPage {
 
 	public void clickSearch() {
 		try {
-
-			//Click Search and DuckDuckGo searches for Selenium
-			driver.findElement(By.xpath(Elems.SEARCH_BTN.getElem())).click();
+			//send keys
+			driver.findElement(By.name(Elems.TEXT_AREA.getElem())).sendKeys(Keys.RETURN);
 			Thread.sleep(5000);
 
 			//if exception executing above code, outputs issues
